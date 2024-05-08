@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [View Code](https://github.com/ortalyarts/frontendmentor-password-generator-app)
+- Live Site URL: [Preview Site](https://frontendmentor-password-generator-app.vercel.app/)
 
 ## My process
 
