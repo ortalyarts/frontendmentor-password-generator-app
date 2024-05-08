@@ -1,0 +1,415 @@
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd, ul {
+  margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+    transition: 0.3s;
+  }
+  /* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('./assets/fonts/woff/JetBrainsMono-Bold.woff2') format('woff2'),
+       url('./assets/fonts/woff/JetBrainsMono-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+
+body {
+
+  --accent-color1: rgb(164, 255, 175);
+  --accent-color2: rgb(246, 74, 74);
+  --accent-color3: rgb(251, 124, 88);
+  --accent-color4: rgb(248, 205, 101);
+  --background-color1: rgb(36, 35, 44);
+  --background-color2: rgb(24, 23, 31);
+  --text-color1: rgb(230, 229, 234);
+  --text-color2: rgb(128, 124, 146);
+  --text-color3: var(--background-color1);
+  /* --shadow-color1: rgba(0,0,0,10%);
+  --border1: 1px solid rgb(117, 117, 117, 30%); */
+
+  --ffmono: 'JetBrainsMono', monospace;
+
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: flex-start; 
+  height: 100vh;
+  margin: 0;
+  
+
+  font-family: var(--ffmono);
+
+  background-color: var(--background-color2);
+  color: var(--text-color1);
+  padding:0 1rem;
+}
+
+.headingL {
+  font-size: clamp(1.5rem, 2.036vw + 1.023rem, 2rem);
+  line-height: 100%;
+  font-weight: 700;
+}
+.headingM {
+  font-size: 1.125rem;
+  line-height:1.5rem;
+  font-weight: 700;
+}
+.headingM.italic {
+  font-size: 1.25rem;
+  line-height: 100%;
+  font-weight: 700;
+}
+.headingS {
+  font-size: 1rem;
+  line-height: 100%;
+  font-weight: 700;
+}
+.bodyM, .bodyM p{
+  font-size: 0.938rem;
+  line-height:1.5rem;
+  font-weight: 700;
+}
+.bodyS, .bodyS p{
+  font-size: 0.875rem;
+  line-height:100%;
+  font-weight: 700;
+}
+
+
+.hide {
+  display:none !important;
+}
+.screen-reader-only {
+  position:absolute;
+  display:inline-block;
+  height:1px;
+  width:1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE 7+ only support clip without commas */
+  clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
+}
+
+.main-container{
+  flex-grow: 1; 
+  margin:0 auto;
+}
+
+
+main {
+  min-height:80vh;
+  margin-top:8.313rem;
+}
+
+h1 {
+  text-align: center;
+  color:var(--text-color2);
+}
+.result-holder {
+  display:flex;
+  justify-content: space-between;
+  height:5rem;
+  padding:1.188rem 1.8rem 1.188rem 2rem;
+  margin:2rem 0 1.5rem 0;
+}
+.background{
+  background: var(--background-color1);
+}
+#result {
+  min-width:20%;
+}
+#result:empty {
+  border-bottom: 2px dashed var(--text-color2);
+}
+.copy-holder {
+  display:flex;
+  gap:1rem;
+  align-items: center;
+}
+.copy-holder p {
+  color: var(--accent-color1);
+  text-transform: uppercase;
+}
+.copy {
+  background:none;
+  outline:none;
+  border:none;
+  cursor:pointer;
+  padding: 0.4rem;
+}
+.copy svg path {
+  fill:var(--accent-color1);
+  transition:0.6s;
+}
+.copy:hover svg path, .copy:focus-visible svg path{
+  fill:var(--text-color2);
+}
+
+.settings-holder {
+  padding:1.45rem 2rem 1.188rem 2rem;
+}
+.range-holder {
+  margin-bottom:2.5rem;
+}
+#length-value {
+  color:var(--accent-color1);
+}
+label.label-length{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:1rem;
+}
+
+/* Range input restyle */
+
+/*Range Reset*/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--accent-color1) 0%, var(--accent-color1) 50%, var(--background-color2) 50%, var(--background-color2) 100%);
+  border-radius: 0;
+  height: 0.5rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.75rem;
+  width: 1.75rem;
+  border-radius: 50%;
+  background:var(--text-color1);
+  transition: background 0.3s;
+}
+input[type="range"]::-moz-range-thumb {
+  outline:none;
+  border:none;
+  background:var(--text-color1);
+  height: 1.75rem;
+  width: 1.75rem;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+input[type="range"]:focus-visible::-moz-range-thumb, input[type="range"]::-moz-range-thumb:hover {
+  background:var(--background-color2);
+  box-shadow:inset 0 0 0 1px var(--accent-color1);
+}
+input[type="range"]:focus-visible::-webkit-slider-thumb, input[type="range"]::-webkit-slider-thumb:hover  {
+  background:var(--background-color2);
+  box-shadow:inset 0 0 0 1px var(--accent-color1);
+}
+/* End Range input */
+
+/* Restyle checkbox */
+
+.label-checkbox{
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 1.5em;
+  cursor:pointer;
+}
+.label-checkbox + .label-checkbox {
+  margin-top: 1.125em;
+}
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--background-color1); /* For iOS < 15 to remove gradient background */
+  margin: 0;
+
+  cursor:pointer;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 2px solid currentColor;
+  border-radius: none;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--background-color1);
+  /* Support for High Contrast Themes and Forced Colors */
+  background-color: CanvasText;
+  /* Checkmark Shape */
+  transform-origin: center;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+input[type="checkbox"]:hover {
+  border: 2px solid var(--accent-color1);
+}
+input[type="checkbox"]:checked {
+  background-color: var(--accent-color1);
+  border: 2px solid var(--accent-color1);
+}
+input[type="checkbox"]:checked::before {
+  transform: scale(1); 
+}
+input[type="checkbox"]:focus-visible {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
+/* End Restyle checkbox */
+
+.strength-holder {
+  background: var(--background-color2);
+  padding:1.313rem 2rem;
+  height:4.5rem;
+  display:flex;
+  justify-content: space-between;
+  margin-top:2rem;
+}
+.strength-holder h2 {
+  color:var(--text-color2);
+  text-transform: uppercase;
+}
+.strength-holder p {
+  color: var(--text-color1);
+  text-transform: uppercase;
+}
+.strength-result {
+  display:flex;
+  gap: 1rem;
+}
+#strength-bars {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:0.5rem;
+  justify-content: end;
+  justify-items: end;
+}
+.bar {
+  width:0.625rem;
+  height:1.75rem;
+  display:block;
+  box-shadow:inset 0 0 0 2px var(--text-color1);
+  background-color: var(--background-color1);
+  transition: 0.3s;
+}
+.bar.full {
+  box-shadow:none;
+  animation: barAppearance 0.2s linear;
+}
+.strong .bar.full {
+  background-color: var(--accent-color1);
+}
+.tooweak .bar.full {
+  background-color: var(--accent-color2);
+}
+.weak .bar.full {
+  background-color: var(--accent-color3);
+}
+.medium .bar.full {
+  background-color: var(--accent-color4);
+}
+
+@keyframes barAppearance {
+  0%{
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+#submit {
+  border:none;
+  outline:none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:1.5rem;
+  width:100%;
+  height:4.063rem;
+  margin-top:2rem;
+  background:var(--accent-color1);
+  color: var(--text-color3);
+  font-size:1.125rem;
+  cursor:pointer;
+  transition:0.3s;
+}
+#submit svg {
+  fill:var(--text-color3);
+}
+#submit:hover, #submit:focus-visible {
+  background: var(--background-color1);
+  box-shadow:inset 0 0 0 1px var(--accent-color1);
+  color:var(--accent-color1);
+}
+#submit:hover svg, #submit:focus-visible svg {
+  fill:var(--accent-color1);
+  transition:0.3s;
+}
+
+#error-message {
+  color:var(--accent-color2);
+  text-align: center;
+  margin-top:1rem;
+  opacity:1;
+  transition: 0.5s;
+}
+#error-message:empty {
+  transform: scaleY(0);
+  opacity:0.1;
+}
+
+footer {
+  text-align: center;
+  color: var(--text-color2);
+  margin: 4rem 0 2rem 0;
+}
+footer p{
+  line-height: 1.1rem !important;
+}
+footer a {
+  color:var(--text-color2);
+}
+
+@media screen and (min-width:40rem) {
+
+  .headingL {
+    font-size: 2rem; /* Fallback if clamp() not working */
+    line-height:2.688rem;
+  }
+  .headingM {
+    font-size: 1.5rem;
+    line-height:1.938rem;
+  }
+  .bodyM, .bodyM p{
+    font-size: 1.125rem;
+    line-height:1.438rem;
+  }
+  .main-container{
+    max-width:33.75rem;
+  }
+
+
+}
