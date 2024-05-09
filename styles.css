@@ -111,8 +111,7 @@ body {
 
 
 main {
-  min-height:80vh;
-  margin-top:8.313rem;
+  margin-top:1rem;
 }
 
 h1 {
@@ -395,6 +394,10 @@ footer a {
 
 @media screen and (min-width:40rem) {
 
+  main{
+    min-height:80vh;
+    margin-top:8.313rem;
+  }
   .headingL {
     font-size: 2rem; /* Fallback if clamp() not working */
     line-height:2.688rem;
